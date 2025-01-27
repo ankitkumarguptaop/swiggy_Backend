@@ -17,10 +17,17 @@ const orderSchema = new mongoose.Schema(
       ref: "Cart",
       required: true,
     },
+    status :{
+      type: String,
+      enum: ['Success', 'Pending' , ]
+    },
     total_price: {
       type: Number,
       required: true,
     },
+    date :{
+      type: Date, default: Date.now()
+    }
     
   },
   { timestamps: true }
