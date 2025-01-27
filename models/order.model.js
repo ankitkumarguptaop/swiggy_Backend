@@ -12,23 +12,41 @@ const orderSchema = new mongoose.Schema(
       ref: "Restaurant",
       required: true,
     },
-    cart_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Cart",
-      required: true,
-    },
-    status :{
+    // cart_id: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "Cart",
+    //   required: true,
+    // },
+    status: {
       type: String,
-      enum: ['Success', 'Pending' , ]
+      enum: ["Success", "Pending", "OutOfDelivery"],
     },
     total_price: {
       type: Number,
       required: true,
     },
-    date :{
-      type: Date, default: Date.now()
-    }
-    
+    date: {
+      type: Date,
+      default: Date.now(),
+    },
+    items: [
+      {
+        dish_id: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Menu",
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+          min: 1,
+        },
+        price: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );

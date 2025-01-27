@@ -13,7 +13,10 @@ const menuSchema = Schema(
       required: [true, "Price not given"],
     },
 
-    picture:{type:String , required: [true, 'Pic not given']},
+    picture: {
+      type: String,
+      required: [true, "Pic not given"],
+    },
 
     description: {
       type: String,
@@ -22,7 +25,7 @@ const menuSchema = Schema(
 
     rating: {
       type: Number,
-      required: [true, "Description not given"],
+      required: [true, "rating not given"],
       min: [0, "Must be at least 0"],
       max: [5, "Must less than or equal 5"],
     },
