@@ -9,18 +9,17 @@ exports.createOrder = async (payload) => {
   const { body, cart_id } = payload;
   const { user_id, restaurant_id, total_price, status } = body;
   const allItemsBeforeDelete = await Item.find({ cart_id: cart_id }).select(
-    "price",
-    "quantity",
-    "dish_id"
+    "price quantity dish_id -_id"
   );
 
+   console.log(allItemsBeforeDelete);
   try {
     const newOrder = new Order({
       user_id,
       restaurant_id,
       total_price,
       status,
-      items: [allItemsBeforeDelete],
+      items: [...allItemsBeforeDelete],
     });
 
     const savedOrder = await newOrder.save();
@@ -42,6 +41,20 @@ exports.getOrderById = async (payload) => {
     throw "Error fetching order: " + error;
   }
 };
+
+
+exports.getAllOrders= async (payload) => {
+
+  try {
+    const orders = await Order.find({});
+    if (!orders) throw new Error("Order not found");
+    return orders;
+  } catch (error) {
+    throw "Error fetching order: " + error;
+  }
+};
+
+
 
 exports.getOrdersByUserId = async (payload) => {
   try {

@@ -9,6 +9,7 @@ router.use("/users",jwtUserAuth,require("./user.route"));
 router.use("/carts",jwtUserAuth,require("./cart.route"))
 router.use("/restaurants",jwtRestuarantAuth, require("./restaurant.route"));
 router.use("/restaurants/menu", jwtRestuarantAuth, require("./menu.route"));
+router.use("/carts/items", jwtUserAuth, require("./cart-item.route"));
 router.use("/restaurants/orders", jwtUserAuth, require("./order.route"));
 
 

@@ -19,7 +19,9 @@ const orderSchema = new mongoose.Schema(
     // },
     status: {
       type: String,
-      enum: ["Success", "Pending", "OutOfDelivery"],
+      enum: ['Success', 'Pending', 'OutOfDelivery'],
+      default:"Pending",
+      require:true
     },
     total_price: {
       type: Number,

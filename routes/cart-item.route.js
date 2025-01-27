@@ -2,10 +2,9 @@ const express = require("express");
 const {cartItemControllers} = require("../controllers");
 const router = express.Router();
 
-router.get("/", cartItemControllers.ge);
-router.get("/:id", cartItemControllers.getCartById);
-router.post("/:restaurant_id",cartItemControllers.createCart);
-router.patch("/:id", cartItemControllers.updateCart);
-router.delete("/:id", cartItemControllers.deleteCart);
+router.get("/", cartItemControllers.getAllItems);
+router.get("/:cart_id", cartItemControllers.getItemsInCart);
+router.patch("/:item_id", cartItemControllers.updateItemInCart);
+router.delete("/:item_id", cartItemControllers.deleteItemFromCart);
 
 module.exports = router;
