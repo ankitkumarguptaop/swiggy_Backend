@@ -6,6 +6,6 @@ module.exports = {
     menuServices:require("./menu.service.js"),
     cartServices:require("./cart.service.js"),
     cartItemServices:require("./cart-item.service.js"),
-    orderService:require("./order.service.js")
+    orderServices:require("./order.service.js")
   };
   

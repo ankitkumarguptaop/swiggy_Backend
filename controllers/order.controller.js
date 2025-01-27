@@ -1,8 +1,8 @@
-const { orderService } = require("../services");
+const { orderServices } = require("../services");
 
 exports.createOrder = async (req, res) => {
   try {
-    const order = await orderService.createOrder({ body: req.body });
+    const order = await orderServices.createOrder({ body: req.body });
     res.status(201).json(order);
   } catch (error) {
     res.status(500).json({ error: error });
@@ -11,7 +11,7 @@ exports.createOrder = async (req, res) => {
 
 exports.getOrderById = async (req, res) => {
   try {
-    const order = await orderService.getOrderById({ orderId: req.params.id });
+    const order = await orderServices.getOrderById({ orderId: req.params.id });
     res.status(200).json(order);
   } catch (error) {
     res.status(500).json({ error: error });
@@ -20,7 +20,7 @@ exports.getOrderById = async (req, res) => {
 
 exports.getOrdersByUserId = async (req, res) => {
   try {
-    const orders = await orderService.getOrdersByUserId({
+    const orders = await orderServices.getOrdersByUserId({
       user_id: req.params.user_id,
     });
     res.status(200).json(orders);
@@ -31,7 +31,7 @@ exports.getOrdersByUserId = async (req, res) => {
 
 exports.deleteOrder = async (req, res) => {
   try {
-    const deletedOrder = await orderService.deleteOrder({
+    const deletedOrder = await orderServices.deleteOrder({
       orderId: req.params.id,
     });
     res.status(200).json(deletedOrder);
@@ -43,7 +43,7 @@ exports.deleteOrder = async (req, res) => {
 
 exports.updateOrder = async (req, res) => {
   try {
-    const updateOrder = await orderService.updateOrder({
+    const updateOrder = await orderServices.updateOrder({
       orderId: req.params.id,
       body:req.body
     });

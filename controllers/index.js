@@ -7,6 +7,7 @@ module.exports = {
     restaurantControllers:require("./restaurant.controller.js"),
     menuControllers:require("./menu.controller.js"),
     cartControllers:require("./cart.controller.js"),
-    cartItemControllers:require("./cart-item.controller.js")
+    cartItemControllers:require("./cart-item.controller.js"),
+    orderControllers:require("./order.controller.js")
 }
   
