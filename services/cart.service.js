@@ -42,10 +42,3 @@ exports.deleteCart = async (payload) => {
   const { cart_id } = payload;
   return await Cart.findByIdAndDelete(cart_id);
 };
-
-
-
-exports.deleteCardddt = async (payload) => {
-  const { cart_id } = payload;
-  return await Cart.findByIdAndDelete(cart_id);
-};
